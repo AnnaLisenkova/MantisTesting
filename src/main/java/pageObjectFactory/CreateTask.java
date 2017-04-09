@@ -19,8 +19,6 @@ public class CreateTask {
     @FindBy(css = "input[value='Создать задачу']")
     WebElement buttonCreateTaskOnTaskPage;
 
-
-
     public void pushCreateTaskOnHomePage(){
         this.buttonCreateTaskOnHomePage.click();
     }

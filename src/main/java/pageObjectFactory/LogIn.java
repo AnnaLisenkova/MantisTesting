@@ -14,7 +14,6 @@ public class LogIn {
     @FindBy(id = "password")
     WebElement password;
 
-
     public void fillContactForm(String username, String password){
         this.username.sendKeys(username);
         this.password.sendKeys(password + Keys.ENTER);
