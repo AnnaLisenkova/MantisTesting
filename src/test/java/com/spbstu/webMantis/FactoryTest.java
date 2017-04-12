@@ -1,7 +1,9 @@
 package com.spbstu.webMantis;
 
+import com.spbstu.webMantis.helper.ResourceLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjectFactory.Mantis;
 
 
 /**
@@ -10,28 +12,19 @@ import org.testng.annotations.Test;
 public class FactoryTest extends Init{
 
     @Test
-    public void MantisTest(){
+    public void MantisTest() throws Exception {
         Mantis.open();
 
-        Mantis.loginPage.fillContactForm("administrator", "root");
+        Mantis.loginPage.fillContactForm(ResourceLoader.getUser("administrator"));
 
-        Mantis.newTaskPage.pushCreateTaskOnHomePage();
-        String expected = "MadeWithFactory";
-        Mantis.newTaskPage.fillTaskForm(expected,"Test task...");
-        Mantis.newTaskPage.pushCreateTaskOnTaskpage();
+        Mantis.commonForms.pushCreateTaskOnHomePage();
+        Mantis.newTaskPage.fillTaskForm(ResourceLoader.getTask("task_1"));
+        Mantis.newTaskPage.submitTaskForm();
+        Assert.assertTrue(Mantis.checkTask.getList().stream().anyMatch(e -> e.getText()
+                         .contains(ResourceLoader.getTask("task_1").getSummary())));
 
-        int seqNumb = Mantis.checkTask.findNumberOfTask(expected);
-        Assert.assertTrue(Mantis.checkTask.getList().stream().anyMatch(e -> e.getText().contains(expected)));
+        Mantis.deleteTask.deleteTask(ResourceLoader.getTask("task_1").getSummary());
 
-        Mantis.deleteTask.pushPencilMark(seqNumb);
-        Mantis.deleteTask.pushButtonChangeData();
-        Mantis.deleteTask.pushButtonDelete();
-        Mantis.deleteTask.pushButtonDeleteTasks();
-
-        //Check deleted task
-        if(Mantis.checkTask.getList().size()!=0) {
-            Assert.assertFalse(Mantis.checkTask.getList().stream().anyMatch(e -> e.getText().contains(expected)));
-        }
     }
 }
 

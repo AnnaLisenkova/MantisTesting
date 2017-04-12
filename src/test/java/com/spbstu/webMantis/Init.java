@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import pageObjectFactory.Mantis;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,9 +23,8 @@ public class Init {
         Mantis.init(driver);
     }
 
-
     @AfterSuite
-    public void afterSute(){
+    public void afterSuite(){
         driver.close();
     }
 

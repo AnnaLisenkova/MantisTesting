@@ -57,7 +57,7 @@ public class SimpleTest extends Init {
         PushButtonBeforeCreateTask();
         String expected = FillingFields();
         PushButtonAfterCreateTask();
-        //Check created task
+        //CheckTask created task
         List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"buglist\"]/tbody/tr/td[11]"));
         Assert.assertTrue(elements.stream().anyMatch(e -> e.getText().contains(expected)));
 
@@ -72,7 +72,7 @@ public class SimpleTest extends Init {
 
         DeleteTask(seqNumb);
 
-        //Check deleted task
+        //CheckTask deleted task
         List<WebElement> elements2 = driver.findElements(By.xpath("//*[@id=\"buglist\"]/tbody/tr/td[11]"));
         String unexpected = "JavaMade2";
         if(elements2.size()!=0) {

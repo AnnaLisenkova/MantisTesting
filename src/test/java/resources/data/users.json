@@ -1,0 +1,14 @@
+{
+  "administrator": {
+    "login": "administrator",
+    "password": "root"
+  },
+  "user_1": {
+    "login": "user_1",
+    "password": "qwerty"
+  },
+  "user_2": {
+    "login": "user_2",
+    "password": "12345"
+  }
+}
