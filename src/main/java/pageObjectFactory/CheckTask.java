@@ -31,7 +31,7 @@ public class CheckTask {
 
     public boolean checkWhetherTaskWasAppointed(String expected) {
         return appointedTasks.stream()
-                             .anyMatch(row -> row.findElement(By.xpath("//span//a[.='MadeWithFactory']"))
+                             .anyMatch(row -> row.findElement(By.xpath("//span//a[.='" + expected + "']"))
                                                  .getText()
                                                  .equals(expected));
 
