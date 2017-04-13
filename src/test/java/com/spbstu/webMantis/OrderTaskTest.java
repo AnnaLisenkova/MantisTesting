@@ -34,7 +34,11 @@ public class OrderTaskTest extends Init {
 
         Assert.assertTrue(Mantis.checkTask.checkWhetherTaskWasAppointed(ResourceLoader.getTask("task_1").getSummary()));
 
-        Thread.sleep(2000);
+        Mantis.commonForms.clickOnUser();
+        Mantis.commonForms.clickLogOut();
+
+        Mantis.loginPage.fillContactForm(ResourceLoader.getUser("administrator"));
+
     }
 }
 

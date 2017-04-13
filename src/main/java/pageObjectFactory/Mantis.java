@@ -20,7 +20,7 @@ public class Mantis {
     public static CommonForms commonForms;
     private static WebDriver driver;
 
-    public static void init(WebDriver driver){
+    public static void init(WebDriver driver) {
         Mantis.loginPage = PageFactory.initElements(driver, LogInPage.class);
         Mantis.newTaskPage = PageFactory.initElements(driver,CreateTaskPage.class);
         Mantis.deleteTask = PageFactory.initElements(driver,DeleteTask.class);
@@ -30,7 +30,10 @@ public class Mantis {
         Mantis.driver = driver;
     }
 
-    public static void open(){
+    public static void open() {
         driver.get("http://127.0.0.1/mantisbt");
+    }
+    public static void openHomePage() {
+        driver.get("http://127.0.0.1/mantisbt/view_all_bug_page.php");
     }
 }
