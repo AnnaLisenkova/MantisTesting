@@ -10,15 +10,8 @@ import lombok.Setter;
 
 @Setter
 @AllArgsConstructor
+@Getter
 public class Task {
     String summary;
     String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
 }
