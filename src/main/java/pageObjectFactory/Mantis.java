@@ -1,6 +1,7 @@
 package pageObjectFactory;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pageObjectFactory.Pages.ChangeTaskDataPage;
 import pageObjectFactory.Pages.CommonForms;
@@ -32,6 +33,10 @@ public class Mantis {
 
     public static void open() {
         driver.get("http://127.0.0.1/mantisbt");
+    }
+
+    public static WebDriver getDriver(){
+        return driver;
     }
     public static void openHomePage() {
         driver.get("http://127.0.0.1/mantisbt/view_all_bug_page.php");

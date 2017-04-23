@@ -10,7 +10,7 @@ public class CommonForms {
     @FindBy(css = "span[class='user-info']")
     WebElement userSpan;
 
-    @FindBy(xpath = "//*[@id=\"navbar-container\"]/div[2]/ul/li[2]/ul/li[4]/a")
+    @FindBy(css = "[class='ace-icon fa fa-sign-out']")
     WebElement logOut;
 
     @FindBy(xpath = "//div[@id='sidebar']//li[3]//span")

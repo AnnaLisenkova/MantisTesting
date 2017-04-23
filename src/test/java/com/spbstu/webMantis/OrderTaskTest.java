@@ -24,7 +24,7 @@ public class OrderTaskTest extends Init {
         Assert.assertTrue(Mantis.checkTask.getList().stream().anyMatch(e -> e.getText().contains(ResourceLoader.getTask("task_1").getSummary())));
 
         Mantis.changeTask.findAndClickCreatedTask(ResourceLoader.getTask("task_1").getSummary());
-        Mantis.changeTask.clickOnChosenUser();
+        Mantis.changeTask.clickOnUserInFallingList(ResourceLoader.getUser("user_1").getLogin());
         Mantis.changeTask.pushAppointButton();
 
         Mantis.commonForms.clickOnUser();
@@ -33,11 +33,6 @@ public class OrderTaskTest extends Init {
         Mantis.loginPage.fillContactForm(ResourceLoader.getUser("user_1"));
 
         Assert.assertTrue(Mantis.checkTask.checkWhetherTaskWasAppointed(ResourceLoader.getTask("task_1").getSummary()));
-
-        Mantis.commonForms.clickOnUser();
-        Mantis.commonForms.clickLogOut();
-
-        Mantis.loginPage.fillContactForm(ResourceLoader.getUser("administrator"));
 
     }
 }

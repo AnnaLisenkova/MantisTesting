@@ -33,4 +33,8 @@ public class ChangeTaskDataPage {
     public void clickOnChosenUser(){
            this.chosenUserInFallingList.click();
     }
+
+    public void clickOnUserInFallingList(String userName){
+        Mantis.getDriver().findElement(By.xpath("//select[@class='input-sm']/option[.='"+userName+"']")).click();
+    }
 }

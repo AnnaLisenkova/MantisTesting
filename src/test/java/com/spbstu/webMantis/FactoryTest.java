@@ -22,9 +22,6 @@ public class FactoryTest extends Init{
         Mantis.newTaskPage.submitTaskForm();
         Assert.assertTrue(Mantis.checkTask.getList().stream().anyMatch(e -> e.getText()
                          .contains(ResourceLoader.getTask("task_1").getSummary())));
-
-        //Mantis.deleteTask.deleteTask(ResourceLoader.getTask("task_1").getSummary());
-
     }
 }
 
